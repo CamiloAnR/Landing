@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rosa & Espinas</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --primary: #ff2e63;
+  --dark: #0f0f0f;
+  --light: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--dark);
+  color: var(--light);
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  width: 100%;
+  padding: 20px 10%;
+  display: flex;
+  justify-content: space-between;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 0.9rem;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  background: radial-gradient(circle at center, rgba(255,46,99,0.3), transparent 70%),
+              url('https://images.unsplash.com/photo-rose') center/cover no-repeat;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display';
+  font-size: 3.5rem;
+  color: var(--primary);
+}
+
+.hero p {
+  margin: 20px 0;
+  color: #ccc;
+}
+
+.btn {
+  padding: 12px 28px;
+  background: var(--primary);
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* SECTIONS */
+section {
+  padding: 100px 10%;
+}
+
+/* ABOUT */
+.about {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.about img {
+  width: 320px;
+  border-radius: 10px;
+}
+
+/* FEATURES */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #1a1a1a;
+  padding: 25px;
+  border-radius: 10px;
+  border-top: 3px solid var(--primary);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* PARALLAX SECTION */
+.parallax {
+  height: 60vh;
+  background: url('https://images.unsplash.com/photo-rose-dark') center/cover fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.parallax h2 {
+  font-size: 2.5rem;
+  background: rgba(0,0,0,0.5);
+  padding: 20px;
+}
+
+/* CTA */
+.cta {
+  text-align: center;
+  background: linear-gradient(45deg, #ff2e63, #8e2de2);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: black;
+  color: #aaa;
+}
+
+/* ANIMATIONS */
+.fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px){
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div><strong>🌹 Rosa</strong></div>
+  <div>
+    <a href="#about">Historia</a>
+    <a href="#features">Concepto</a>
+    <a href="#cta">Explorar</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content fade">
+    <h1>Belleza que hiere</h1>
+    <p>Una rosa no es solo un símbolo de amor, también es una advertencia.</p>
+    <button class="btn">Descubrir</button>
+  </div>
+</section>
+
+<section id="about" class="about fade">
+  <img src="rrr.jpg">
+  <div>
+    <h2>La Dualidad</h2>
+    <p>
+      Inspirado en la estética generada con IA, este diseño representa la tensión
+      entre lo delicado y lo peligroso. Cada espina cuenta una historia.
+    </p>
+  </div>
+</section>
+
+<section id="features" class="features fade">
+  <div class="card">
+    <h3>🌹 Emoción</h3>
+    <p>Diseño generado con IA centrado en provocar sensaciones.</p>
+  </div>
+  <div class="card">
+    <h3>⚡ Intensidad</h3>
+    <p>Contrastes visuales inspirados en arte digital.</p>
+  </div>
+  <div class="card">
+    <h3>🧠 IA Creativa</h3>
+    <p>Conceptos generados con herramientas como DALL·E.</p>
+  </div>
+</section>
+
+<section class="parallax">
+  <h2>"No toda belleza es segura"</h2>
+</section>
+
+<section id="cta" class="cta fade">
+  <h2>Explora la experiencia</h2>
+  <button class="btn">Entrar</button>
+</section>
+
+<footer>
+  © 2026 Rosa & Espinas — Diseño asistido por IA
+</footer>
+
+<script>
+// Scroll animation
+const faders = document.querySelectorAll('.fade');
+
+const appear = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+});
+
+faders.forEach(el => appear.observe(el));
+</script>
+
+</body>
+</html>
