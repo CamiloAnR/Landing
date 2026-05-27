@@ -1,1 +1,7 @@
+<input id="nombre" placeholder="Nombre">
+<input id="email" placeholder="Email">
+<input id="password" type="password">
 
+<button onclick="register()">Registrar</button>
+
+<script src="js/auth.js"></script>
